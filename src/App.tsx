@@ -1,33 +1,58 @@
+import { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import Products from "./pages/Products";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import NotFound from "./pages/NotFound";
+import { Routes, Route } from "react-router-dom";
+import SuspenseLoader from "./components/common/SuspenseLoader";
+import ScrollToTop from "./components/common/ScrollToTop";
 
-const queryClient = new QueryClient();
+
+
+// Lazy loading pages
+const Index = lazy(() => import("./pages/Index"));
+const Products = lazy(() => import("./pages/Products"));
+const Contact = lazy(() => import("./pages/Contact"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+
+
+
+// Lazy loading components
+const MainLayout = lazy(() => import("./components/layout/MainLayout"));
+
+
+
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+
+
+  <Suspense fallback={<SuspenseLoader />}>
+
+    <Toaster />
+
+    <Sonner />
+
+
+    <ScrollToTop />
+
+    <Routes>
+
+
+      {/* Main Layout */}
+      <Route element={<MainLayout />}>
+        <Route index element={<Index />} />
+        <Route path="products" element={<Products />} />
+        <Route path="contact" element={<Contact />} />
+      </Route>
+
+
+      {/* 404 */}
+      <Route path="*" element={<NotFound />} />
+
+    </Routes>
+
+
+  </Suspense>
+
+
 );
 
 export default App;

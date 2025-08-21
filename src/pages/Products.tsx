@@ -1,16 +1,21 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { motion } from "framer-motion";
 import cakeBoxes from "@/assets/cake-boxes.jpg";
 import pastryBoxes from "@/assets/pastry-boxes.jpg";
 import broastBoxes from "@/assets/broast-boxes.jpg";
 import burgerBoxes from "@/assets/burger-boxes.jpg";
 import cakeBases from "@/assets/cake-bases.jpg";
 import cakeBags from "@/assets/cake-bags.jpg";
+import ProductCard from "@/components/products/ProductCard";
+
+
+
+
 
 const Products = () => {
+
+
+
+  // Sample product data
   const products = [
     {
       title: "Cake Boxes",
@@ -80,66 +85,89 @@ const Products = () => {
     }
   ];
 
+
+
   return (
+
+
     <div className="min-h-screen">
-      <Header />
-      
-      <section className="py-16 bg-gradient-warm">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-              Our Products
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              We are providing all types of customized food boxes, including cake, pastry, broast, snack, and meal boxes, 
-              crafted with premium quality materials to ensure safety, durability, and attractive presentation.
-            </p>
-          </div>
-        </div>
-      </section>
 
-      <section className="py-16 bg-background">
+
+      <section className="py-5 sm:py-20 bg-gradient-warm relative overflow-hidden">
+
+        {/* Decorative background shape */}
+        <div className="absolute inset-0 -z-10 opacity-10">
+          <svg
+            className="w-full h-full"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+            viewBox="0 0 1440 320"
+          >
+            <path
+              fill="currentColor"
+              d="M0,96L60,106.7C120,117,240,139,360,133.3C480,128,600,96,720,117.3C840,139,960,213,1080,229.3C1200,245,1320,203,1380,181.3L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
+            ></path>
+          </svg>
+        </div>
+
+
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-12">
-            {products.map((product, index) => (
-              <Card key={index} className="overflow-hidden shadow-soft hover:shadow-card transition-shadow duration-300">
-                <div className="aspect-video overflow-hidden">
-                  <img 
-                    src={product.image} 
-                    alt={product.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-center max-w-4xl mx-auto"
+          >
+
+            {/* Title */}
+            <div className="text-center relative inline-block">
+              <h1 className="text-4xl md:text-5xl font-extrabold text-primary mb-6 relative inline-block">
+                Our Products
+                {/* Elegant curved underline */}
+                <svg
+                  className="absolute left-0 right-0 -bottom-4 mx-auto w-40 h-6 text-primary"
+                  viewBox="0 0 200 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 15 C60 5, 140 5, 190 15"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
                   />
-                </div>
-                <CardHeader>
-                  <CardTitle className="text-2xl text-primary">{product.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <ul className="space-y-3">
-                    {product.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="text-sm text-muted-foreground">
-                        <span className="font-semibold text-primary">
-                          {feature.split(':')[0]}:
-                        </span>
-                        <span className="ml-1">
-                          {feature.split(':').slice(1).join(':')}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button className="w-full mt-6 bg-gradient-hero text-primary-foreground hover:opacity-90">
-                    Enquire Now!
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                </svg>
+              </h1>
+            </div>
+
+
+            {/* Description */}
+            <p className="text-md sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+              We provide a wide range of <span className="text-primary font-semibold">customized food boxes</span>,
+              including cake, pastry, broast, snack, and meal boxes — all crafted with
+              <span className="text-primary font-semibold"> premium quality materials</span> to ensure
+              safety, durability, and stunning presentation for your brand.
+            </p>
+
+          </motion.div>
+
         </div>
+
       </section>
 
-      <Footer />
-      <WhatsAppButton />
+
+
+      {/* Product Card */}
+      <ProductCard products={products} />
+
+
     </div>
+
   );
+
+
 };
 
 export default Products;
