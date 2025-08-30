@@ -7,18 +7,13 @@ export default function OurDeliveries() {
 
     // Generate a list of sample images
     const images = [
-        { src: "https://picsum.photos/id/1011/600/400", alt: "Sample Image 1" },
-        { src: "https://picsum.photos/id/1012/600/400", alt: "Sample Image 2" },
-        { src: "https://picsum.photos/id/1015/600/400", alt: "Sample Image 3" },
-        { src: "https://picsum.photos/id/1016/600/400", alt: "Sample Image 4" },
-        { src: "https://picsum.photos/id/1018/600/400", alt: "Sample Image 5" },
-        { src: "https://picsum.photos/id/1020/600/400", alt: "Sample Image 6" },
-        { src: "https://picsum.photos/id/1024/600/400", alt: "Sample Image 7" },
-        { src: "https://picsum.photos/id/1025/600/400", alt: "Sample Image 8" },
-        { src: "https://picsum.photos/id/1027/600/400", alt: "Sample Image 9" },
-        { src: "https://picsum.photos/id/1035/600/400", alt: "Sample Image 10" },
-        { src: "https://picsum.photos/id/1038/600/400", alt: "Sample Image 11" },
-        { src: "https://picsum.photos/id/1040/600/400", alt: "Sample Image 12" },
+        { src: "/PACKAGE 1-01.jpg", alt: "Sample Image 1" },
+        { src: "/PACKAGE 1-02.jpg", alt: "Sample Image 2" },
+        { src: "/PACKAGE 1-03.jpg", alt: "Sample Image 3" },
+        { src: "/PACKAGE 1-04.jpg", alt: "Sample Image 4" },
+        { src: "/PACKAGE 1-05.jpg", alt: "Sample Image 5" },
+        { src: "/PACKAGE 1-06.jpg", alt: "Sample Image 6" },
+        { src: "/PACKAGE 1-07.jpg", alt: "Sample Image 7" },
     ];
 
 
@@ -60,7 +55,7 @@ export default function OurDeliveries() {
                 </div>
 
 
-                <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     {images.map((image, index) => (
                         <MotionEffect
                             key={index}

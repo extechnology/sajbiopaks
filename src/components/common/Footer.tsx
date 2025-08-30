@@ -78,10 +78,22 @@ const Footer = () => {
         <div className="mt-10 border-t border-primary-foreground/20 pt-6 flex flex-col md:flex-row items-center justify-between text-sm">
           <span>© 2025 Saj Bio Paks. All rights reserved.</span>
           <div className="flex space-x-4 mt-2 md:mt-0">
-            <a href="#" className="hover:text-accent">Privacy Policy</a>
-            <a href="#" className="hover:text-accent">Terms of Service</a>
+            <Link to={'/privacy&policy'} className="hover:text-accent">Privacy Policy</Link>
+            <Link to={'/terms&conditions'} className="hover:text-accent">Terms & Conditions</Link>
+            <Link to={'/refund&returnpolicy'} className="hover:text-accent">Refund & Return Policy</Link>
+            <Link to={'/shippmentpolicy'} className="hover:text-accent">Shippment Policy</Link>
           </div>
         </div>
+
+
+        <a
+          href="https://extechnology.in/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm text-accent hover:text-accent transition-colors duration-300 font-medium tracking-wide"
+        >
+          Developed by <span className="font-semibold text-accent hover:text-accent">ex-technology</span>
+        </a>
 
 
       </div>
