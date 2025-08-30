@@ -12,6 +12,11 @@ const Index = lazy(() => import("./pages/Index"));
 const Products = lazy(() => import("./pages/Products"));
 const Contact = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const Terms = lazy(() => import("./pages/Terms"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Refund = lazy(() => import("./pages/Refund"));
+const Shipment = lazy(() => import("./pages/Shipment"));
+
 
 
 
@@ -41,6 +46,10 @@ const App = () => (
         <Route index element={<Index />} />
         <Route path="products" element={<Products />} />
         <Route path="contact" element={<Contact />} />
+        <Route path="terms&conditions" element={<Terms />} />
+        <Route path="privacy&policy" element={<Privacy />} />
+        <Route path="refund&returnpolicy" element={<Refund />} />
+        <Route path="shippmentpolicy" element={<Shipment />} />
       </Route>
 
 

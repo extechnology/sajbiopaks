@@ -27,11 +27,17 @@ const Header = () => {
         <div className="flex h-20 items-center justify-between">
 
 
-          <div className="flex items-center">
-            <Link to="/" className="text-2xl md:text-3xl font-bold text-primary hover:scale-105 transition-transform duration-200">
-              Saj Bio Paks
+          <div className="flex items-center w-40">
+            <Link to="/" className="block w-full">
+              <img
+                src="/Nav-logo.png"
+                className="w-full h-20 object-contain"
+                alt="nav-logo"
+              />
             </Link>
           </div>
+
+
 
 
           {/* Desktop Navigation */}
@@ -68,12 +74,12 @@ const Header = () => {
 
           {/* Desktop CTA Button */}
           <Link to="/contact" className="hidden md:inline-flex">
-          <Button
-            variant="default"
-            className="hidden md:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2 font-semibold shadow-soft hover:shadow-lg hover:scale-105 transition-all duration-200"
-          >
-            Get Quote
-          </Button>
+            <Button
+              variant="default"
+              className="hidden md:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2 font-semibold shadow-soft hover:shadow-lg hover:scale-105 transition-all duration-200"
+            >
+              Get Quote
+            </Button>
           </Link>
 
 
